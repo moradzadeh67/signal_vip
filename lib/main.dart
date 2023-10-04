@@ -11,6 +11,7 @@ class Application extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(fontFamily: 'vazir'),
       home: HomeScreen(),
     );
   }
@@ -22,20 +23,43 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.deepOrangeAccent,
       body: SafeArea(
-        child: Center(
-          child: TextButton(
-            onPressed: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (BuildContext context) {
-                    return SecondScreen();
-                  },
-                ),
-              );
-            },
-            child: Text('Next'),
-          ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'خوش آمدید',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            ),
+            Image(
+              image: AssetImage('images/welcome.png'),
+            ),
+            OutlinedButton(
+              style: OutlinedButton.styleFrom(
+                minimumSize: Size(200.0, 40.0),
+                side: BorderSide(color: Colors.white, width: 2),
+                foregroundColor: Colors.white,
+              ),
+              onPressed: () {},
+              child: Text(
+                'ورود به حساب',
+                style: TextStyle(fontSize: 16),
+              ),
+            ),
+            TextButton(
+              style: TextButton.styleFrom(
+                foregroundColor: Colors.black,
+                backgroundColor: Colors.white,
+                minimumSize: Size(200, 40),
+              ),
+              onPressed: () {},
+              child: Text(
+                'ثبت نام',
+                style: TextStyle(fontSize: 16),
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -48,11 +72,11 @@ class SecondScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
-          child: Center(
-            child: Text('SecondScreen'),
-          ),
+      body: SafeArea(
+        child: Center(
+          child: Text('SecondScreen'),
         ),
-      );
+      ),
+    );
   }
 }
